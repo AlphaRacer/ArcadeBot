@@ -157,6 +157,181 @@ client.on('message', (message) => {
         message.channel.send(db1.set4.replies[result]);
     }
 
+    // Support Chatbot
+    if (!message.channel.id === '807453062956449803') {
+        return;
+    } else if (message.channel.id === '807453062956449803') {
+        const help = message.content.toLowerCase();
+        switch (help) {
+            case 'help':
+                message.delete();
+                let embed = new Discord.MessageEmbed()
+                    .setTitle('Help | Support Chatbot')
+                    .setDescription('What kind of help do you want?')
+                    .addField(':one: General Server-Related Help', 'Send "`1`"')
+                    .addField(':two: Report Bug in Server', 'Send "`2`"')
+                    .addField(':three: Make a Suggestion', 'Send "`3`"')
+                    .addField(':four: Other', 'Send "`4`"')
+                    .setColor('#17a2b8')
+                    .setFooter(
+                        `Command requested by ${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                    );
+                message.channel.send(embed);
+                break;
+            case '1':
+                message.delete();
+                let embed1 = new Discord.MessageEmbed()
+                    .setTitle(':one: General Server-Related Help')
+                    .setDescription('What kind of General Help do you want?')
+                    .addField(
+                        ":regional_indicator_a: I'd like to know about something in the server",
+                        'Send "`1a`"'
+                    )
+                    .addField(
+                        ":regional_indicator_b: I'd like to partner/sponsor my server with this server",
+                        'Send "`1b`"'
+                    )
+                    .addField(
+                        ':regional_indicator_c: How do I get self-roles?',
+                        'Send "`1c`"'
+                    )
+                    .setFooter(
+                        `Can't find what help you need? Go back to the main menu by sending "help" | Command requested by ${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                    )
+                    .setColor('#28a745');
+                message.channel.send(embed1);
+                break;
+            case '2':
+                message.delete();
+                let embed2 = new Discord.MessageEmbed()
+                    .setTitle(':two: Report Bug in Server')
+                    .setFooter(
+                        `Command requested by ${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                    )
+                    .addField(
+                        'Answer:',
+                        'Follow __[these instructions](https://discord.com/channels/677532911054094367/678487165461856297/785880168370929736)__ and create a **support ticket** to contact staff about it.'
+                    )
+                    .setColor('#28a745');
+                message.channel.send(embed2);
+                break;
+            case '3':
+                message.delete();
+                let embed3 = new Discord.MessageEmbed()
+                    .setTitle(':three: Make a Suggestion')
+                    .setFooter(
+                        `Command requested by ${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                    )
+                    .addField(
+                        'Answer:',
+                        "Go to <#723917702460211260> and do `$suggest <your suggestion here>`. If you don't understand how the suggest command works, do `$help suggest`"
+                    )
+                    .setColor('#28a745');
+                message.channel.send(embed3);
+                break;
+            case '4':
+                message.delete();
+                let embed4 = new Discord.MessageEmbed()
+                    .setTitle(':four: "Other" Help')
+                    .addField(
+                        'Answer:',
+                        'Follow __[these instructions](https://discord.com/channels/677532911054094367/678487165461856297/785880168370929736)__ and create a **support ticket** to contact staff about it.'
+                    )
+                    .setColor('#28a745');
+                message.channel.send(embed4);
+                break;
+            case '1a':
+                message.delete();
+                let embed5 = new Discord.MessageEmbed()
+                    .setFooter(
+                        `Command requested by ${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                    )
+                    .setTitle(
+                        ":one: :regional_indicator_a: I'd like to know about something in the server"
+                    )
+                    .addField(
+                        'Answer:',
+                        'Ping an online admin/mod and they will help you out.'
+                    )
+                    .setColor('#28a745');
+                message.channel.send(embed5);
+                break;
+            case '1b':
+                message.delete();
+                let embed6 = new Discord.MessageEmbed()
+                    .setFooter(
+                        `Command requested by ${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                    )
+                    .setTitle(
+                        ":one: :regional_indicator_b: I'd like to partner/sponsor my server with this server"
+                    )
+
+                    .addField(
+                        'Answer:',
+                        'Buy [the "Server Sponsorship/Partnering" item](https://discord.com/channels/677532911054094367/695169578103341106/807463516876832788) from <#695169578103341106>.\nAfter buying the item, send "`u!use Server Sponsorship/Partnering`" in <#723917702460211260> and DM <@568066367518015506> with the permanent invite link of your server and the ad (if you have one)'
+                    )
+
+                    .setColor('#28a745');
+
+                message.channel.send(embed6);
+
+                break;
+
+            case '1c':
+                message.delete();
+
+                let embed7 = new Discord.MessageEmbed()
+
+                    .setFooter(
+                        `Command requested by ${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                    )
+
+                    .setTitle(
+                        ':one: :regional_indicator_c: How do I get self-roles?'
+                    )
+
+                    .addField(
+                        'Answer:',
+                        'Go to <#678564086837149696> and get self-roles from there!'
+                    )
+
+                    .setColor('#28a745');
+                message.channel.send(embed7);
+                break;
+            case 'done':
+                message.channel.bulkDelete(99);
+                let e = new Discord.MessageEmbed()
+
+                    .setTitle('Help | Support Chatbot')
+
+                    .setDescription('What kind of help do you want?')
+
+                    .addField(':one: General Server-Related Help', 'Send "`1`"')
+
+                    .addField(':two: Report Bug in Server', 'Send "`2`"')
+
+                    .addField(':three: Make a Suggestion', 'Send "`3`"')
+
+                    .addField(':four: Other', 'Send "`4`"')
+
+                    .setColor('#17a2b8')
+
+                    .setFooter(
+                        `Command requested by ${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                    );
+                message.channel.send(e);
+                break;
+        }
+    }
+
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
