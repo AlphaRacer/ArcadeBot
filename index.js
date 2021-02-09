@@ -130,7 +130,7 @@ client.on('message', (message) => {
     }
 
     // Auto-responder
-    const { Autoresponder } = require('./modules/Autoresponder');
+    const Autoresponder = require('./modules/Autoresponder.js');
     Autoresponder();
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
