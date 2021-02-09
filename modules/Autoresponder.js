@@ -1,4 +1,5 @@
 module.exports = function Autoresponder() {
+    const { message } = require('../index.js');
     const userinput = message.content.toLowerCase();
     const db1 = {
         set1: {
