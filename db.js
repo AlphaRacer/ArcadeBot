@@ -1,4 +1,4 @@
-module.exports.db1 = {
+module.exports = {
     set1: {
         triggers: [
             'hi',
