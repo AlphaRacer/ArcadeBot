@@ -1,5 +1,5 @@
 module.exports = function Autoresponder() {
-    const { message } = require('../index.js');
+    const { message } = require('../index.js')(client, Discord)
     const userinput = message.content.toLowerCase();
     const db1 = {
         set1: {
