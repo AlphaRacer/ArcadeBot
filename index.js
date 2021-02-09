@@ -130,8 +130,32 @@ client.on('message', (message) => {
     }
 
     // Auto-responder
-    const Autoresponder = require('./modules/Autoresponder.js');
-    Autoresponder();
+    const userinput = message.content.toLowerCase();
+    const db1 = require('/db.js');
+
+    // If the message content contains any greeting words
+    if (db1.set1.triggers.includes(userinput)) {
+        result = Math.floor(Math.random() * db1.set1.replies.length);
+        message.channel.send(db1.set1.replies[result]);
+    }
+
+    // If the message content contains any words like bye
+    if (db1.set2.triggers.includes(userinput)) {
+        result = Math.floor(Math.random() * db1.set2.replies.length);
+        message.channel.send(db1.set2.replies[result]);
+    }
+
+    // If the message content contains any words like thank you
+    if (db1.set3.triggers.includes(userinput)) {
+        result = Math.floor(Math.random() * db1.set3.replies.length);
+        message.channel.send(db1.set3.replies[result]);
+    }
+
+    // If the message content contains any words like thank you
+    if (db1.set4.triggers.includes(userinput)) {
+        result = Math.floor(Math.random() * db1.set4.replies.length);
+        message.channel.send(db1.set4.replies[result]);
+    }
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/);
