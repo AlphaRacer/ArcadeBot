@@ -88,9 +88,9 @@ client.on('message', (message) => {
                                         'Check out <#802028218886389840>!\n\nBe the first one to redeem it!'
                                     );
 
-                                message.client.channels.cache
-                                    .get('677532911565537280')
-                                    .send(embed);
+                                // message.client.channels.cache
+                                //     .get('677532911565537280')
+                                //     .send(embed);
                             } else if (value == 75) {
                                 console.log(
                                     'Messages reached 75 and spawned Crate'
@@ -118,9 +118,9 @@ client.on('message', (message) => {
                                     .setFooter(
                                         "(If you can't see the channel, subscribe to Arcadium PLUS and you'll see it)"
                                     );
-                                message.client.channels.cache
-                                    .get('677532911565537280')
-                                    .send(embed);
+                                // message.client.channels.cache
+                                //     .get('677532911565537280')
+                                //     .send(embed);
                             }
                         });
                     });
