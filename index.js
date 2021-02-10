@@ -131,7 +131,7 @@ client.on('message', (message) => {
 
     // Auto-responder
     const userinput = message.content.toLowerCase();
-    const db1 = require('./db.js');
+    const db1 = require('./db/db.js');
 
     // If the message content contains any greeting words
     if (db1.set1.triggers.includes(userinput)) {
