@@ -30,97 +30,140 @@ for (const file of commandFiles) {
 // Once the bot has initialized
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity('the Music Radio', { type: 'LISTENING' });
-    client.channels.cache
-        .get('781005031289258015')
-        .join()
-        .then(() =>
-            // Go to the general channel and tell that it's listening to the Music Radio
-            client.channels.cache
-                .get('677532911565537280')
-                .send(
-                    "Hey guys! I'm listening to the **Music Radio** voice channel! Join me here: https://discord.gg/cvPAmUx3EN"
-                )
-                .then((sentMessage) => sentMessage.react('👍'))
-        );
+    client.user.setActivity('Alpha\'s Arcade', { type: 'WATCHING' });
 });
 
 // Once the bot can start running commands
 client.on('message', (message) => {
+    const roleID = '814369732383735808';
     // Card and Crate spawns
     const Database = require('@replit/database');
     const db = new Database();
     if (message) {
         db.get('messages').then((value) => {
-            if (value > 100) {
+            if (value > 200) {
                 db.delete('messages').then(() => {
-                    console.log('Messages reached 100 and got cleared!');
+                    console.log('Messages reached 200 and got cleared!');
                 });
             } else {
                 db.get('messages').then((value) => {
                     const newMessage = value + 1;
                     db.set('messages', newMessage).then(() => {
                         db.get('messages').then((value) => {
-                            if (value == 50) {
+                            if (value == 150) {
                                 console.log(
-                                    'Messages reached 50 and spawned Card'
+                                    'Messages reached 150 and spawned Card'
                                 );
-                                const arr = [
-                                    '__**New Arcadium Card Spawn!**__\nCard: +50\n\nhttps://i.imgur.com/mJ9EKQD.png\n`Tell the name of the Card in the chat and ping someone from the Staff Team to redeem it!`',
-                                    '__**New Arcadium Card Spawn!**__\nCard: +100\n\nhttps://i.imgur.com/j3LZjyd.png\n`Tell the name of the Card in the chat and ping someone from the Staff Team to redeem it!`',
-                                    '__**New Arcadium Card Spawn!**__\nCard: +150\n\nhttps://i.imgur.com/Nxe66hg.png\n`Tell the name of the Card in the chat and ping someone from the Staff Team to redeem it!`',
-                                    '__**New Arcadium Card Spawn!**__\nCard: +200\n\nhttps://i.imgur.com/0vE044z.png\n`Tell the name of the Card in the chat and ping someone from the Staff Team to redeem it!`',
-                                ];
-                                const random = Math.floor(
-                                    Math.random() * arr.length
-                                );
-                                const result = arr[random];
-
-                                //   messages.channel.send(result);
-                                message.client.channels.cache
-                                    .get('802028218886389840')
-                                    .send(result);
+                                // const arr = [
+                                //     '__**New Arcadium Card Spawn!**__\nCard: +50\n\nhttps://i.imgur.com/mJ9EKQD.png\n`Tell the name of the Card in the chat and ping someone from the Staff Team to redeem it!`',
+                                //     '__**New Arcadium Card Spawn!**__\nCard: +100\n\nhttps://i.imgur.com/j3LZjyd.png\n`Tell the name of the Card in the chat and ping someone from the Staff Team to redeem it!`',
+                                //     '__**New Arcadium Card Spawn!**__\nCard: +150\n\nhttps://i.imgur.com/Nxe66hg.png\n`Tell the name of the Card in the chat and ping someone from the Staff Team to redeem it!`',
+                                //     '__**New Arcadium Card Spawn!**__\nCard: +200\n\nhttps://i.imgur.com/0vE044z.png\n`Tell the name of the Card in the chat and ping someone from the Staff Team to redeem it!`',
+                                // ];
+                                // const random = Math.floor(
+                                //     Math.random() * arr.length
+                                // );
+                                // const result = arr[random];
                                 const Discord = require('discord.js');
-                                const embed = new Discord.MessageEmbed()
-                                    .setTitle('A New Arcadium Card spawned!')
-                                    .setColor('#00ccff')
-                                    .setDescription(
-                                        'Check out <#802028218886389840>!\n\nBe the first one to redeem it!'
-                                    );
+                                var links = ['https://media.discordapp.net/attachments/798422277661786162/810731228160327680/50_Card_-_Copy.png?width=849&height=425', 'https://media.discordapp.net/attachments/798422277661786162/810731232572866590/100_Card.png?width=849&height=425', 'https://media.discordapp.net/attachments/798422277661786162/810731232425672734/150_Card.png?width=849&height=425', 'https://media.discordapp.net/attachments/798422277661786162/810731648555155498/200_Card.png?width=849&height=425'];
+                                const x = ['a', 'b', 'c', 'd'];
+                                switch(x[Math.floor(Math.random() * x.length)]) {
+                                    case 'a':
+                                        let e = new Discord.MessageEmbed()
+                                        .setColor('#17a2b8')
+                                        .setTimestamp()
+                                        .addField("How do I redeem it?", "> Tell the amount (number) on the Card and ping someone from the Staff Team.")
+                                        .setImage(links[0]);
+                                        message.client.channels.cache.get('814346043302740009').send(`<@&${roleID}> **New Arcadium Card Spawn!**`);
+                                        message.client.channels.cache.get('814346043302740009').send(e);
+                                        break;
+                                    case 'b':
+                                        let ee = new Discord.MessageEmbed()
+                                        .setColor('#17a2b8')
+                                        .setTimestamp()
+                                        .addField(":grey_question: How do I redeem it?", "> Tell the amount (number) on the Card and ping someone from the Staff Team.")
+                                        .setImage(links[1]);
+                                        message.client.channels.cache.get('814346043302740009').send(`<@&${roleID}> **New Arcadium Card Spawn!**`);
+                                        message.client.channels.cache.get('814346043302740009').send(ee);
+                                        break;
+                                    case 'c':
+                                        let eee = new Discord.MessageEmbed()
+                                        .setColor('#17a2b8')
+                                        .setTimestamp()
+                                        .addField(":grey_question: How do I redeem it?", "> Tell the amount (number) on the Card and ping someone from the Staff Team.")
+                                        .setImage(links[2]);
+                                        message.client.channels.cache.get('814346043302740009').send(`<@&${roleID}> **New Arcadium Card Spawn!**`);
+                                        message.client.channels.cache.get('814346043302740009').send(eee);
+                                        break;
+                                    case 'd':
+                                        let eeee = new Discord.MessageEmbed()
+                                            .setColor('#17a2b8')
+                                            .addField(":grey_question: How do I redeem it?", "> Tell the amount (number) on the Card and ping someone from the Staff Team.")
+                                            .setTimestamp()
+                                            .setImage(links[3]);
+                                            message.client.channels.cache.get('814346043302740009').send(`<@&${roleID}> **New Arcadium Card Spawn!**`);
+                                        message.client.channels.cache.get('814346043302740009').send(eeee);
+                                        break;
+                                }
 
                                 // message.client.channels.cache
-                                //     .get('677532911565537280')
-                                //     .send(embed);
-                            } else if (value == 75) {
+                                //     .get('802028218886389840')
+                                //     .send(result);
+                                // const Discord = require('discord.js');
+                            } else if (value == 200) {
                                 console.log(
-                                    'Messages reached 75 and spawned Crate'
+                                    'Messages reached 200 and spawned Crate'
                                 );
-                                const arr2 = [
-                                    '__**New Crate Spawn!**__\nCrate: +500\n\nhttps://i.imgur.com/ssbkKSh.jpg\n`Tell the name of the Crate in the chat and ping someone from the Staff Team to redeem it!`',
-                                    '__**New Crate Spawn!**__\nCrate: +1000\n\nhttps://i.imgur.com/mHUzLoe.jpg\n`Tell the name of the Crate in the chat and ping someone from the Staff Team to redeem it!`',
-                                    '__**New Crate Spawn!**__\nCrate: +1500\n\nhttps://i.imgur.com/KpBkjPD.jpg\n`Tell the name of the Crate in the chat and ping someone from the Staff Team to redeem it!`',
-                                    '__**New Crate Spawn!**__\nCrate: +2000\n\nhttps://i.imgur.com/HROEaRT.jpg\n`Tell the name of the Crate in the chat and ping someone from the Staff Team to redeem it!`',
-                                ];
-                                const random2 = Math.floor(
-                                    Math.random() * arr2.length
-                                );
-                                const result2 = arr2[random2];
-                                message.client.channels.cache
-                                    .get('802211279901032479')
-                                    .send(result2);
-                                const Discord = require('discord.js');
-                                const embed = new Discord.MessageEmbed()
-                                    .setTitle('A New Arcadium Crate spawned!')
-                                    .setColor('#00ccff')
-                                    .setDescription(
-                                        'Check out <#802211279901032479>!\n\nBe the first one to redeem it!'
-                                    )
-                                    .setFooter(
-                                        "(If you can't see the channel, subscribe to Arcadium PLUS and you'll see it)"
-                                    );
-                                // message.client.channels.cache
-                                //     .get('677532911565537280')
-                                //     .send(embed);
+                                // const arr2 = [
+                                //     '__**New Crate Spawn!**__\nCrate: +500\n\nhttps://i.imgur.com/ssbkKSh.jpg\n`Tell the name of the Crate in the chat and ping someone from the Staff Team to redeem it!`',
+                                //     '__**New Crate Spawn!**__\nCrate: +1000\n\nhttps://i.imgur.com/mHUzLoe.jpg\n`Tell the name of the Crate in the chat and ping someone from the Staff Team to redeem it!`',
+                                //     '__**New Crate Spawn!**__\nCrate: +1500\n\nhttps://i.imgur.com/KpBkjPD.jpg\n`Tell the name of the Crate in the chat and ping someone from the Staff Team to redeem it!`',
+                                //     '__**New Crate Spawn!**__\nCrate: +2000\n\nhttps://i.imgur.com/HROEaRT.jpg\n`Tell the name of the Crate in the chat and ping someone from the Staff Team to redeem it!`',
+                                // ];
+                                // const random2 = Math.floor(
+                                //     Math.random() * arr2.length
+                                // );
+                                // const result2 = arr2[random2];
+                                const x = ['a', 'b', 'c', 'd'];
+                                // const Discord = require('discord.js');
+                                var links = ['https://media.discordapp.net/attachments/798422277661786162/811084260382867547/500_Crate.png?width=813&height=407', 'https://media.discordapp.net/attachments/798422277661786162/811084265365700658/1000_Crate.png?width=813&height=407', 'https://media.discordapp.net/attachments/798422277661786162/811084269551353906/1500_Crate.png?width=813&height=407', 'https://media.discordapp.net/attachments/798422277661786162/811084268280479794/2000_Crate.png?width=813&height=407'];
+                                switch(x[Math.floor(Math.random() * x.length)]) {
+                                    case 'a':
+                                        let e = new Discord.MessageEmbed()
+                                        .setColor('#17a2b8')
+                                        .addField(":grey_question: How do I redeem it?", "> Tell the *type* of Crate. Refer the pinned message for help.")
+                                        .setTimestamp()
+                                        .setImage(links[0]);
+                                        message.client.channels.cache.get('814345812490321941').send(`<@&${roleID}> **New Arcadium Crate Spawn!**`);
+                                        message.client.channels.cache.get('814345812490321941').send(e);
+                                        break;
+                                    case 'b':
+                                        let ee = new Discord.MessageEmbed()
+                                        .setColor('#17a2b8')
+                                        .setTimestamp()
+                                        .addField(":grey_question: How do I redeem it?", "> Tell the *type* of Crate. Refer the pinned message for help.")
+                                        .setImage(links[1]);
+                                        message.client.channels.cache.get('814345812490321941').send(`<@&${roleID}> **New Arcadium Crate Spawn!**`);
+                                        message.client.channels.cache.get('814345812490321941').send(ee);
+                                        break;
+                                    case 'c':
+                                        let eee = new Discord.MessageEmbed()
+                                        .setColor('#17a2b8')
+                                        .setTimestamp()
+                                        .addField(":grey_question: How do I redeem it?", "> Tell the *type* of Crate. Refer the pinned message for help.")
+                                        .setImage(links[2]);
+                                        message.client.channels.cache.get('814345812490321941').send(`<@&${roleID}> **New Arcadium Crate Spawn!**`);
+                                        message.client.channels.cache.get('814345812490321941').send(eee);
+                                        break;
+                                    case 'd':
+                                        let eeee = new Discord.MessageEmbed()
+                                        .setColor('#17a2b8')
+                                        .setTimestamp()
+                                        .addField(":grey_question: How do I redeem it?", "> Tell the *type* of Crate. Refer the pinned message for help.")
+                                        .setImage(links[3]);
+                                        message.client.channels.cache.get('814345812490321941').send(`<@&${roleID}> **New Arcadium Crate Spawn!**`);
+                                        message.client.channels.cache.get('814345812490321941').send(eeee);
+                                }
                             }
                         });
                     });
@@ -129,7 +172,7 @@ client.on('message', (message) => {
         });
     }
 
-    // Auto-responder
+    // Auto-responder or Chatbot
     const userinput = message.content.toLowerCase();
     const db1 = require('./db/db.js');
 
